@@ -269,52 +269,6 @@ footer {
     .stages strong { display: block; font-size: 12px; color: var(--ink); }
     .stages span { font-size: 10px; color: var(--mute); }
 
-    /* Face ID gate */
-    .gate {
-      position: absolute; inset: 0; z-index: 5;
-      background: radial-gradient(ellipse 80% 50% at 50% 20%, rgba(61,139,253,.22), transparent 55%), var(--bg);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 28px; gap: 10px;
-      transition: opacity .35s ease, visibility .35s ease;
-    }
-    .gate.off { opacity: 0; visibility: hidden; pointer-events: none; }
-    .face {
-      width: 84px; height: 84px; border-radius: 22px;
-      border: 1.5px solid rgba(245,247,255,.35);
-      display: grid; place-items: center; margin-bottom: 8px;
-      background: rgba(255,255,255,.03);
-      position: relative;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-    button.face {
-      font: inherit; color: inherit; appearance: none; -webkit-appearance: none;
-    }
-    .face:focus-visible { outline: 2px solid var(--sand); outline-offset: 3px; }
-    .gate .btn {
-      margin-top: 10px; background: var(--sand); color: #fff;
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 14px 22px; border-radius: 999px; font-weight: 600; font-size: 14px;
-      border: 0; cursor: pointer; min-width: 180px;
-    }
-    .face svg { width: 44px; height: 44px; stroke: var(--ink); fill: none; stroke-width: 1.6; }
-    .face.scanning::after {
-      content: ""; position: absolute; left: 12px; right: 12px; height: 2px;
-      background: var(--sand); top: 20%;
-      animation: scan 1.1s ease-in-out infinite;
-      box-shadow: 0 0 12px var(--sand);
-    }
-    @keyframes scan {
-      0% { top: 18%; opacity: .3; }
-      50% { top: 72%; opacity: 1; }
-      100% { top: 18%; opacity: .3; }
-    }
-    .gate h2 { font-family: Syne, sans-serif; font-size: 22px; font-weight: 700; }
-    .gate p { color: var(--mute); font-size: 13px; max-width: 240px; }
-    .gate .passcode {
-      background: transparent; border: 0; color: var(--mute);
-      font-size: 13px; cursor: pointer; margin-top: 4px; text-decoration: underline;
-    }
 
     /* Health permission sheet */
     .sheet {
@@ -349,21 +303,11 @@ footer {
 <body>
   <div class="proto-top">
     <a class="logo" href="index.html">← CURRENT site</a>
-    <span class="fine" style="margin:0">Mock · Face ID + Apple Health sleep</span>
+    <span class="fine" style="margin:0">Mock · Apple Health sleep</span>
   </div>
 
   <div class="shell">
     <div class="device" id="device">
-      <div class="gate" id="gate">
-        <button class="face" id="facebtn" type="button" aria-label="Unlock with Face ID">
-          <svg viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M9 15c.8 1 1.8 1.5 3 1.5s2.2-.5 3-1.5"/></svg>
-        </button>
-        <div class="brand">CURRENT</div>
-        <h2>Unlock with Face ID</h2>
-        <p>On iPhone Safari this can open real Face ID. Elsewhere you get the mock scan. Passcode skips biometrics.</p>
-        <button class="btn" type="button" id="unlock">Use Face ID</button>
-        <button class="passcode" type="button" id="passcode">Use passcode instead</button>
-      </div>
 
       <div class="sheet off" id="healthsheet">
         <div class="sheet-card">
@@ -453,13 +397,9 @@ footer {
 
       <div id="lock" class="screen hidden">
         <div class="lock-inner">
-          <div class="face" style="margin-bottom:4px">
-            <svg viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M9 15c.8 1 1.8 1.5 3 1.5s2.2-.5 3-1.5"/></svg>
-          </div>
           <div class="brand">CURRENT</div>
-          <h1 style="font-size:26px">Lock the app</h1>
-          <p class="sub">Tap below to re-lock. Borrowed phones only see the Face ID cover.</p>
-          <button class="btn" type="button" id="relock" style="background:var(--sand);color:#fff">Lock with Face ID</button>
+          <h1 style="font-size:26px">Privacy</h1>
+          <p class="sub">App lock is off for this preview so you can tap through freely. Biometric lock returns in the real iOS build.</p>
         </div>
       </div>
 
@@ -475,8 +415,6 @@ footer {
   <script>
     const tabs = document.querySelectorAll('.tabs button');
     const screens = ['today','cal','pattern','lock'];
-    const gate = document.getElementById('gate');
-    const face = document.getElementById('facebtn');
     const sheet = document.getElementById('healthsheet');
 
     function showTab(id) {
@@ -490,95 +428,10 @@ footer {
       btn.onclick = () => showTab(btn.dataset.tab);
     });
 
-    function finishUnlock() {
-      face.classList.remove('scanning');
-      document.getElementById('unlock').textContent = 'Use Face ID';
-      document.getElementById('unlock').disabled = false;
-      gate.classList.add('off');
-      if (!sessionStorage.getItem('currentHealthAsked')) {
-        sheet.classList.remove('off');
-      }
+        // App lock removed for preview access. Show Health sheet once per session.
+    if (!sessionStorage.getItem('currentHealthAsked')) {
+      sheet.classList.remove('off');
     }
-
-    function mockUnlock() {
-      face.classList.add('scanning');
-      document.getElementById('unlock').textContent = 'Scanning…';
-      setTimeout(finishUnlock, 1100);
-    }
-
-    function b64url(buf) {
-      const bytes = buf instanceof ArrayBuffer ? new Uint8Array(buf) : buf;
-      let s = '';
-      bytes.forEach(b => { s += String.fromCharCode(b); });
-      return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-    }
-
-    async function tryPlatformFaceId() {
-      if (!window.PublicKeyCredential || !navigator.credentials) return false;
-      try {
-        const available = await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable();
-        if (!available) return false;
-      } catch (e) {
-        return false;
-      }
-      const challenge = crypto.getRandomValues(new Uint8Array(32));
-      const userId = crypto.getRandomValues(new Uint8Array(16));
-      try {
-        document.getElementById('unlock').textContent = 'Face ID…';
-        document.getElementById('unlock').disabled = true;
-        face.classList.add('scanning');
-        await navigator.credentials.create({
-          publicKey: {
-            challenge,
-            rp: { name: 'Current', id: location.hostname },
-            user: {
-              id: userId,
-              name: 'current-demo',
-              displayName: 'Current'
-            },
-            pubKeyCredParams: [
-              { type: 'public-key', alg: -7 },
-              { type: 'public-key', alg: -257 }
-            ],
-            authenticatorSelection: {
-              authenticatorAttachment: 'platform',
-              userVerification: 'required',
-              residentKey: 'discouraged'
-            },
-            timeout: 60000,
-            attestation: 'none'
-          }
-        });
-        finishUnlock();
-        return true;
-      } catch (e) {
-        face.classList.remove('scanning');
-        document.getElementById('unlock').textContent = 'Use Face ID';
-        document.getElementById('unlock').disabled = false;
-        // User cancel: stay locked. Other errors: mock fallback.
-        if (e && (e.name === 'NotAllowedError' || e.name === 'AbortError')) {
-          return true; // handled, do not mock
-        }
-        return false;
-      }
-    }
-
-    async function unlockWithBiometrics() {
-      const ok = await tryPlatformFaceId();
-      if (!ok) mockUnlock();
-    }
-
-    function unlockPasscode() {
-      mockUnlock();
-    }
-
-    document.getElementById('unlock').onclick = unlockWithBiometrics;
-    face.onclick = unlockWithBiometrics;
-    document.getElementById('passcode').onclick = unlockPasscode;
-    document.getElementById('relock').onclick = () => {
-      showTab('today');
-      gate.classList.remove('off');
-    };
 
     function setSleepConnected(ok) {
       sessionStorage.setItem('currentHealthAsked', '1');
