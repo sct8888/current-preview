@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Current - The cycle app, for men</title>
- <link rel="preconnect" href="https://fonts.googleapis.com" />
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
- <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
- <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Current  -  The cycle app, for men</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
 :root {
- --bg: #050505;
- --bg-2: #121212;
- --ink: #ffffff;
- --mute: #a3a3a3;
- --line: rgba(255, 255, 255, 0.14);
- --sand: #ff4d2e;
- --sand-2: #ff7a3d;
- --hot: #b4ff3b;
+  --bg: #07090f;
+  --bg-2: #0e1420;
+  --ink: #f5f7ff;
+  --mute: #8b95ab;
+  --line: rgba(245, 247, 255, 0.12);
+  --sand: #3d8bfd;
+  --sand-2: #6aa4ff;
+  --hot: #7c5cff;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
- font-family: Geist, ui-sans-serif, system-ui, sans-serif;
- background: var(--bg);
- background-image: radial-gradient(ellipse 90% 55% at 50% -15%, rgba(255,77,46,0.35), transparent 55%), radial-gradient(ellipse 45% 35% at 100% 10%, rgba(180,255,59,0.14), transparent 50%);
- color: var(--ink);
- line-height: 1.55;
- min-height: 100vh;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  background: var(--bg);
+  background-image: radial-gradient(ellipse 90% 50% at 50% -20%, rgba(61,139,253,0.35), transparent 55%), radial-gradient(ellipse 40% 35% at 100% 0%, rgba(124,92,255,0.22), transparent 50%);
+  color: var(--ink);
+  line-height: 1.55;
+  min-height: 100vh;
 }
 .noise {
- pointer-events: none;
- position: fixed; inset: 0;
- opacity: .06;
- background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
- z-index: 0;
+  pointer-events: none;
+  position: fixed; inset: 0;
+  opacity: .06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 0;
 }
 a { color: inherit; text-decoration: none; }
 .nav, .hero, .strip, .split, .phones, .grid3, .privacy, .waitlist, footer {
- position: relative; z-index: 1;
+  position: relative; z-index: 1;
 }
 
 .nav {
- display: flex; align-items: center; justify-content: space-between;
- padding: 22px 7vw;
- border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 7vw;
+  border-bottom: 1px solid var(--line);
 }
 .logo { letter-spacing: .22em; font-weight: 600; font-size: 13px; }
 .nav nav { display: flex; gap: 28px; color: var(--mute); font-size: 13px; }
 .btn {
- display: inline-flex; align-items: center; justify-content: center;
- background: var(--ink); color: var(--bg);
- padding: 14px 22px; border-radius: 999px;
- font-weight: 600; font-size: 14px; border: 0; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--bg);
+  padding: 14px 22px; border-radius: 999px;
+  font-weight: 600; font-size: 14px; border: 0; cursor: pointer;
 }
 .btn-sm { padding: 8px 14px; font-size: 12px; }
 .btn-ghost {
- background: transparent; color: var(--ink);
- border: 1px solid var(--line);
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--line);
 }
 
 .hero { padding: 88px 7vw 72px; max-width: 1100px; }
 .eyebrow {
- color: var(--sand); letter-spacing: .16em; text-transform: uppercase;
- font-size: 11px; margin-bottom: 18px;
+  color: var(--sand); letter-spacing: .16em; text-transform: uppercase;
+  font-size: 11px; margin-bottom: 18px;
 }
 h1 {
- font-family: Fraunces, Georgia, serif;
- font-weight: 400; font-size: clamp(40px, 7vw, 84px);
- line-height: .95; letter-spacing: -.03em;
+  font-family: Syne, Georgia, serif;
+  font-weight: 400; font-size: clamp(40px, 7vw, 84px);
+  line-height: .95; letter-spacing: -.03em;
 }
 h1 em { color: var(--sand); font-style: italic; }
 .lede { max-width: 540px; margin: 28px 0 36px; color: var(--mute); font-size: 18px; }
@@ -76,8 +76,8 @@ h1 em { color: var(--sand); font-style: italic; }
 .fine { margin-top: 18px; color: #5f574e; font-size: 12px; }
 
 .strip {
- display: grid; grid-template-columns: repeat(3, 1fr);
- border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
 }
 .strip div { padding: 28px 7vw; border-right: 1px solid var(--line); }
 .strip div:last-child { border-right: 0; }
@@ -85,45 +85,45 @@ h1 em { color: var(--sand); font-style: italic; }
 .strip span { color: var(--mute); font-size: 14px; }
 
 .split {
- display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px;
- padding: 88px 7vw; align-items: start;
+  display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px;
+  padding: 88px 7vw; align-items: start;
 }
 h2 {
- font-family: Fraunces, Georgia, serif;
- font-weight: 400; font-size: clamp(28px, 4vw, 46px);
- line-height: 1.08; letter-spacing: -.02em; margin: 10px 0 22px;
+  font-family: Syne, Georgia, serif;
+  font-weight: 400; font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.08; letter-spacing: -.02em; margin: 10px 0 22px;
 }
 .split p { color: var(--mute); margin-bottom: 16px; max-width: 560px; }
 .card {
- background: var(--bg-2); border: 1px solid var(--line);
- padding: 32px; border-radius: 20px;
+  background: var(--bg-2); border: 1px solid var(--line);
+  padding: 32px; border-radius: 20px;
 }
 .quote p {
- font-family: Fraunces, Georgia, serif; font-size: 26px; color: var(--ink);
- line-height: 1.25; margin-bottom: 16px;
+  font-family: Syne, Georgia, serif; font-size: 26px; color: var(--ink);
+  line-height: 1.25; margin-bottom: 16px;
 }
 .quote small { color: var(--mute); letter-spacing: .08em; text-transform: uppercase; font-size: 11px; }
 
 .phones {
- display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
- padding: 40px 7vw 88px; align-items: center;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  padding: 40px 7vw 88px; align-items: center;
 }
 .phones ul { list-style: none; margin: 8px 0 28px; color: var(--mute); }
 .phones li { padding: 10px 0; border-bottom: 1px solid var(--line); }
 .phone-stack { display: flex; justify-content: center; }
 .phone {
- width: 280px; background: #1b1815; border: 1px solid var(--line);
- border-radius: 36px; padding: 22px 22px 28px;
- box-shadow: 0 40px 80px rgba(0,0,0,.45);
+  width: 280px; background: #1b1815; border: 1px solid var(--line);
+  border-radius: 36px; padding: 22px 22px 28px;
+  box-shadow: 0 40px 80px rgba(0,0,0,.45);
 }
 .phone-bar { text-align: center; color: var(--mute); font-size: 11px; margin-bottom: 18px; }
 .phone-brand { letter-spacing: .2em; font-size: 11px; color: var(--sand); }
 .phone-kicker { color: var(--mute); font-size: 12px; margin: 18px 0 8px; }
-.phone h3 { font-family: Fraunces, serif; font-size: 28px; font-weight: 400; }
+.phone h3 { font-family: Syne, serif; font-size: 28px; font-weight: 400; }
 .pills { display: flex; gap: 8px; margin: 14px 0 8px; }
 .pill {
- border: 1px solid var(--line); border-radius: 999px;
- padding: 8px 12px; font-size: 12px; color: var(--mute);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 12px; font-size: 12px; color: var(--mute);
 }
 .pill.on { background: var(--hot); border-color: var(--hot); color: #fff; }
 .dots { display: flex; gap: 8px; margin-bottom: 18px; }
@@ -132,12 +132,12 @@ h2 {
 .phone-note { color: var(--mute); font-size: 12px; }
 
 .grid3 {
- display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
- padding: 0 7vw 88px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  padding: 0 7vw 88px;
 }
 .grid3 article {
- background: var(--bg-2); border: 1px solid var(--line);
- padding: 28px; border-radius: 18px;
+  background: var(--bg-2); border: 1px solid var(--line);
+  padding: 28px; border-radius: 18px;
 }
 .grid3 h3 { font-size: 16px; margin-bottom: 10px; }
 .grid3 p { color: var(--mute); font-size: 14px; }
@@ -147,163 +147,163 @@ h2 {
 .privacy li { margin: 8px 0; }
 
 .waitlist {
- margin: 0 7vw 80px; padding: 56px; border-radius: 28px;
- background: linear-gradient(160deg, #1e1a16, #12100e);
- border: 1px solid var(--line);
+  margin: 0 7vw 80px; padding: 56px; border-radius: 28px;
+  background: linear-gradient(160deg, #1e1a16, #12100e);
+  border: 1px solid var(--line);
 }
 .waitlist form { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
 .waitlist input {
- flex: 1; min-width: 220px; background: #0c0b0a; color: var(--ink);
- border: 1px solid var(--line); border-radius: 999px; padding: 14px 18px;
+  flex: 1; min-width: 220px; background: #0c0b0a; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 999px; padding: 14px 18px;
 }
 footer {
- display: flex; justify-content: space-between;
- padding: 24px 7vw 40px; color: #5f574e; font-size: 12px;
- border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between;
+  padding: 24px 7vw 40px; color: #5f574e; font-size: 12px;
+  border-top: 1px solid var(--line);
 }
 
 @media (max-width: 860px) {
- .nav nav { display: none; }
- .strip, .split, .phones, .grid3 { grid-template-columns: 1fr; }
- .strip div { border-right: 0; border-bottom: 1px solid var(--line); padding: 22px 7vw; }
- .hero { padding-top: 56px; }
- .waitlist { padding: 32px 22px; }
+  .nav nav { display: none; }
+  .strip, .split, .phones, .grid3 { grid-template-columns: 1fr; }
+  .strip div { border-right: 0; border-bottom: 1px solid var(--line); padding: 22px 7vw; }
+  .hero { padding-top: 56px; }
+  .waitlist { padding: 32px 22px; }
 }
 
 </style>
 </head>
 <body>
- <div class="noise"></div>
- <header class="nav">
- <a class="logo" href="index.html">CURRENT</a>
- <nav>
- <a href="#why">Why</a>
- <a href="#app">The app</a>
- <a href="#privacy">Privacy</a>
- </nav>
- <a class="btn btn-sm" href="app.html">Open the mock</a>
- </header>
+  <div class="noise"></div>
+  <header class="nav">
+    <a class="logo" href="index.html">CURRENT</a>
+    <nav>
+      <a href="#why">Why</a>
+      <a href="#app">The app</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+    <a class="btn btn-sm" href="app.html">Open the mock</a>
+  </header>
 
- <section class="hero">
- <p class="eyebrow">Private · On-device · Built for men</p>
- <h1>She has Flo.<br />You have a notes app<br /><em>and a guess.</em></h1>
- <p class="lede">
- Current is the cycle app for guys - a private calendar for sex, drive, sleep and training.
- Mark what happened. See the pattern. Nobody else gets a copy.
- </p>
- <div class="hero-actions">
- <a class="btn" href="#waitlist">Join the waitlist</a>
- <a class="btn btn-ghost" href="app.html">Tap through the prototype →</a>
- </div>
- <p class="fine">Working name. Not affiliated with Flo Health.</p>
- </section>
+  <section class="hero">
+    <p class="eyebrow">Private · On-device · Built for men</p>
+    <h1>She has Flo.<br />You have a notes app<br /><em>and a guess.</em></h1>
+    <p class="lede">
+      Current is the cycle app for guys  -  a private calendar for sex, drive, sleep and training.
+      Mark what happened. See the pattern. Nobody else gets a copy.
+    </p>
+    <div class="hero-actions">
+      <a class="btn" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="app.html">Tap through the prototype →</a>
+    </div>
+    <p class="fine">Working name. Not affiliated with Flo Health.</p>
+  </section>
 
- <section class="strip">
- <div>
- <strong>01</strong>
- <span>Log sex in two taps. Same muscle memory as her period app.</span>
- </div>
- <div>
- <strong>02</strong>
- <span>Drive, sleep, sessions - so the calendar actually means something.</span>
- </div>
- <div>
- <strong>03</strong>
- <span>Stays on your phone. No account required. No ads against your diary.</span>
- </div>
- </section>
+  <section class="strip">
+    <div>
+      <strong>01</strong>
+      <span>Log sex in two taps. Same muscle memory as her period app.</span>
+    </div>
+    <div>
+      <strong>02</strong>
+      <span>Drive, sleep, sessions  -  so the calendar actually means something.</span>
+    </div>
+    <div>
+      <strong>03</strong>
+      <span>Stays on your phone. No account required. No ads against your diary.</span>
+    </div>
+  </section>
 
- <section id="why" class="split">
- <div>
- <p class="eyebrow">The gap</p>
- <h2>Sex sells because men already think in streaks. They just hide the ledger.</h2>
- <p>
- Every women’s health unicorn started as a calendar people were slightly embarrassed to open - 
- then couldn’t stop opening. Men already count. They just do it in their head, badly.
- </p>
- <p>
- Current is not another testosterone-optimisation coach. It is not a body-count trophy case.
- It is the missing male half of the couple’s intimate calendar: when, how you felt, what the week
- around it looked like.
- </p>
- </div>
- <aside class="card quote">
- <p>“She can tell you she’s ovulating on Thursday. You can tell her ‘I think I’m tired.’ That’s the product.”</p>
- <small>Positioning note - v0</small>
- </aside>
- </section>
+  <section id="why" class="split">
+    <div>
+      <p class="eyebrow">The gap</p>
+      <h2>Sex sells because men already think in streaks. They just hide the ledger.</h2>
+      <p>
+        Every women’s health unicorn started as a calendar people were slightly embarrassed to open  - 
+        then couldn’t stop opening. Men already count. They just do it in their head, badly.
+      </p>
+      <p>
+        Current is not another testosterone-optimisation coach. It is not a body-count trophy case.
+        It is the missing male half of the couple’s intimate calendar: when, how you felt, what the week
+        around it looked like.
+      </p>
+    </div>
+    <aside class="card quote">
+      <p>“She can tell you she’s ovulating on Thursday. You can tell her ‘I think I’m tired.’ That’s the product.”</p>
+      <small>Positioning note  -  v0</small>
+    </aside>
+  </section>
 
- <section id="app" class="phones">
- <div class="copy">
- <p class="eyebrow">Prototype</p>
- <h2>Four screens. That’s the whole v1.</h2>
- <ul>
- <li><b>Today</b> - one question: did it happen, and how was drive.</li>
- <li><b>Calendar</b> - month view. Marks, not a novel.</li>
- <li><b>Pattern</b> - drive vs sleep vs hard sessions. Your hypothesis, visual.</li>
- <li><b>Lock</b> - Face ID. If someone borrows the phone, they see a tide. Not your week.</li>
- </ul>
- <a class="btn" href="app.html">Launch in-browser mock</a>
- </div>
- <div class="phone-stack">
- <div class="phone">
- <div class="phone-bar">9:41</div>
- <p class="phone-brand">CURRENT</p>
- <p class="phone-kicker">Thursday 10 Sep</p>
- <h3>Did it happen?</h3>
- <div class="pills">
- <span class="pill on">Yes</span>
- <span class="pill">Solo sex</span>
- <span class="pill">No</span>
- </div>
- <p class="phone-kicker">Drive today</p>
- <div class="dots">
- <i></i><i></i><i class="hot"></i><i class="hot"></i><i></i>
- </div>
- <p class="phone-note">Sleep 6h12 · Easy run · Two beers</p>
- </div>
- </div>
- </section>
+  <section id="app" class="phones">
+    <div class="copy">
+      <p class="eyebrow">Prototype</p>
+      <h2>Four screens. That’s the whole v1.</h2>
+      <ul>
+        <li><b>Today</b>  -  one question: did it happen, and how was drive.</li>
+        <li><b>Calendar</b>  -  month view. Marks, not a novel.</li>
+        <li><b>Pattern</b>  -  drive vs sleep vs hard sessions. Your hypothesis, visual.</li>
+        <li><b>Lock</b>  -  Face ID. If someone borrows the phone, they see a tide. Not your week.</li>
+      </ul>
+      <a class="btn" href="app.html">Launch in-browser mock</a>
+    </div>
+    <div class="phone-stack">
+      <div class="phone">
+        <div class="phone-bar">9:41</div>
+        <p class="phone-brand">CURRENT</p>
+        <p class="phone-kicker">Thursday 10 Sep</p>
+        <h3>Did it happen?</h3>
+        <div class="pills">
+          <span class="pill on">Yes</span>
+          <span class="pill">Solo sex</span>
+          <span class="pill">No</span>
+        </div>
+        <p class="phone-kicker">Drive today</p>
+        <div class="dots">
+          <i></i><i></i><i class="hot"></i><i class="hot"></i><i></i>
+        </div>
+        <p class="phone-note">Sleep 6h12 · Easy run · Two beers</p>
+      </div>
+    </div>
+  </section>
 
- <section class="grid3">
- <article>
- <h3>The Flo move</h3>
- <p>A monthly ritual plus a sex mark. We keep the ritual. We drop the pink UI and the partner-nudge copy.</p>
- </article>
- <article>
- <h3>Why fitness is in the room</h3>
- <p>Not because the App Store is full of gym apps. Because sleep debt and overload are the two things that actually move drive. They earn their place as side-channels.</p>
- </article>
- <article>
- <h3>What we will not ship</h3>
- <p>Leaderboards. Partner surveillance. “You should be having sex every 72 hours.” Ads. A community tab.</p>
- </article>
- </section>
+  <section class="grid3">
+    <article>
+      <h3>The Flo move</h3>
+      <p>A monthly ritual plus a sex mark. We keep the ritual. We drop the pink UI and the partner-nudge copy.</p>
+    </article>
+    <article>
+      <h3>Why fitness is in the room</h3>
+      <p>Not because the App Store is full of gym apps. Because sleep debt and overload are the two things that actually move drive. They earn their place as side-channels.</p>
+    </article>
+    <article>
+      <h3>What we will not ship</h3>
+      <p>Leaderboards. Partner surveillance. “You should be having sex every 72 hours.” Ads. A community tab.</p>
+    </article>
+  </section>
 
- <section id="privacy" class="privacy">
- <p class="eyebrow">Privacy is the brand</p>
- <h2>If we can see your log, we built it wrong.</h2>
- <ul>
- <li>No account to start.</li>
- <li>On-device first. Optional encrypted iCloud you control.</li>
- <li>HealthKit reads sleep and workouts. Intimate entries never written back in v1.</li>
- <li>No SDKs that monetise “custom events.” Flo already paid for that lesson.</li>
- </ul>
- </section>
+  <section id="privacy" class="privacy">
+    <p class="eyebrow">Privacy is the brand</p>
+    <h2>If we can see your log, we built it wrong.</h2>
+    <ul>
+      <li>No account to start.</li>
+      <li>On-device first. Optional encrypted iCloud you control.</li>
+      <li>HealthKit reads sleep and workouts. Intimate entries never written back in v1.</li>
+      <li>No SDKs that monetise “custom events.” Flo already paid for that lesson.</li>
+    </ul>
+  </section>
 
- <section id="waitlist" class="waitlist">
- <h2>Private beta. Cape Town first.</h2>
- <p>Thirty men. Thirty days. If they still open it in week four, we build the real app.</p>
- <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='You’re on the list.'; this.querySelector('button').disabled=true;">
- <input type="email" required placeholder="you@email.com" />
- <button type="submit" class="btn">Request access</button>
- </form>
- <p class="fine">Mock form - nothing is sent. Wire this to Mailchimp / Loops later.</p>
- </section>
+  <section id="waitlist" class="waitlist">
+    <h2>Private beta. Cape Town first.</h2>
+    <p>Thirty men. Thirty days. If they still open it in week four, we build the real app.</p>
+    <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='You’re on the list.'; this.querySelector('button').disabled=true;">
+      <input type="email" required placeholder="you@email.com" />
+      <button type="submit" class="btn">Request access</button>
+    </form>
+    <p class="fine">Mock form  -  nothing is sent. Wire this to Mailchimp / Loops later.</p>
+  </section>
 
- <footer>
- <span>CURRENT</span>
- <span>Concept mock · Sep 2026 · Not a medical device</span>
- </footer>
+  <footer>
+    <span>CURRENT</span>
+    <span>Concept mock · Sep 2026 · Not a medical device</span>
+  </footer>
 </body>
 </html>
