@@ -1,209 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Current - prototype</title>
- <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="styles.css" />
- <style>
- body { display: flex; flex-direction: column; min-height: 100vh; }
- .proto-top {
- display: flex; justify-content: space-between; align-items: center;
- padding: 16px 7vw; border-bottom: 1px solid var(--line);
- }
- .shell {
- flex: 1; display: flex; justify-content: center; align-items: center;
- padding: 32px 16px 80px;
- }
- .device {
- width: 390px; max-width: 100%;
- background: #141210; border: 1px solid var(--line);
- border-radius: 40px; overflow: hidden;
- min-height: 720px; display: flex; flex-direction: column;
- }
- .status { text-align: center; font-size: 12px; color: var(--mute); padding: 14px 0 4px; }
- .screen { padding: 8px 22px 24px; flex: 1; }
- .brand { letter-spacing: .22em; font-size: 11px; color: var(--sand); }
- .screen h1 {
- font-family: Fraunces, serif; font-size: 34px; font-weight: 400;
- margin: 8px 0 6px; letter-spacing: -.03em;
- }
- .sub { color: var(--mute); font-size: 13px; margin-bottom: 22px; }
- .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
- .chip {
- border: 1px solid var(--line); border-radius: 999px;
- padding: 10px 14px; font-size: 13px; color: var(--mute); cursor: pointer;
- }
- .chip.on { background: var(--hot); border-color: var(--hot); color: #fff; }
- .label { font-size: 12px; color: var(--mute); margin-bottom: 8px; }
- .meter { display: flex; gap: 8px; margin-bottom: 24px; }
- .meter b {
- width: 36px; height: 36px; border-radius: 50%;
- background: #2a2622; cursor: pointer; display: grid; place-items: center;
- font-size: 11px; color: #6b645c;
- }
- .meter b.on { background: var(--hot); color: #fff; }
- .save {
- width: 100%; background: var(--ink); color: var(--bg);
- border: 0; border-radius: 999px; padding: 14px; font-weight: 600; cursor: pointer;
- }
- .toast { color: var(--sand); font-size: 13px; margin-top: 12px; min-height: 18px; }
- .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
- .cal span {
- aspect-ratio: 1; border-radius: 10px; display: grid; place-items: center;
- font-size: 12px; background: #1c1916; color: var(--mute);
- }
- .cal span.mark { background: #3a221c; color: #f2c2b4; }
- .cal span.today { outline: 1px solid var(--sand); color: var(--ink); }
- .stat {
- display: flex; justify-content: space-between;
- padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--mute); font-size: 14px;
- }
- .stat b { color: var(--ink); font-weight: 500; }
- .bars { display: flex; align-items: flex-end; gap: 8px; height: 120px; margin: 18px 0 8px; }
- .bars i {
- flex: 1; background: #2a221e; border-radius: 6px 6px 0 0;
- }
- .bars i.f { background: var(--hot); opacity: .85; }
- .lock {
- flex: 1; display: flex; flex-direction: column;
- align-items: center; justify-content: center; text-align: center; gap: 12px;
- }
- .orb {
- width: 88px; height: 88px; border-radius: 50%;
- background: radial-gradient(circle at 30% 30%, #e8c9a4, #7a4a2c 55%, #1a120e);
- margin-bottom: 8px;
- }
- .tabs {
- display: grid; grid-template-columns: repeat(4, 1fr);
- border-top: 1px solid var(--line); padding: 10px 8px 18px;
- }
- .tabs button {
- background: none; border: 0; color: var(--mute); font-size: 11px; cursor: pointer;
- }
- .tabs button.on { color: var(--ink); }
- .hidden { display: none; }
- </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Current  -  prototype</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    .proto-top {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 7vw; border-bottom: 1px solid var(--line);
+    }
+    .shell {
+      flex: 1; display: flex; justify-content: center; align-items: center;
+      padding: 32px 16px 80px;
+    }
+    .device {
+      width: 390px; max-width: 100%;
+      background: #141210; border: 1px solid var(--line);
+      border-radius: 40px; overflow: hidden;
+      min-height: 720px; display: flex; flex-direction: column;
+    }
+    .status { text-align: center; font-size: 12px; color: var(--mute); padding: 14px 0 4px; }
+    .screen { padding: 8px 22px 24px; flex: 1; }
+    .brand { letter-spacing: .22em; font-size: 11px; color: var(--sand); }
+    .screen h1 {
+      font-family: Syne, serif; font-size: 34px; font-weight: 400;
+      margin: 8px 0 6px; letter-spacing: -.03em;
+    }
+    .sub { color: var(--mute); font-size: 13px; margin-bottom: 22px; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .chip {
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 10px 14px; font-size: 13px; color: var(--mute); cursor: pointer;
+    }
+    .chip.on { background: var(--hot); border-color: var(--hot); color: #fff; }
+    .label { font-size: 12px; color: var(--mute); margin-bottom: 8px; }
+    .meter { display: flex; gap: 8px; margin-bottom: 24px; }
+    .meter b {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #2a2622; cursor: pointer; display: grid; place-items: center;
+      font-size: 11px; color: #6b645c;
+    }
+    .meter b.on { background: var(--hot); color: #fff; }
+    .save {
+      width: 100%; background: var(--ink); color: var(--bg);
+      border: 0; border-radius: 999px; padding: 14px; font-weight: 600; cursor: pointer;
+    }
+    .toast { color: var(--sand); font-size: 13px; margin-top: 12px; min-height: 18px; }
+    .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+    .cal span {
+      aspect-ratio: 1; border-radius: 10px; display: grid; place-items: center;
+      font-size: 12px; background: #1c1916; color: var(--mute);
+    }
+    .cal span.mark { background: #3a221c; color: #f2c2b4; }
+    .cal span.today { outline: 1px solid var(--sand); color: var(--ink); }
+    .stat {
+      display: flex; justify-content: space-between;
+      padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--mute); font-size: 14px;
+    }
+    .stat b { color: var(--ink); font-weight: 500; }
+    .bars { display: flex; align-items: flex-end; gap: 8px; height: 120px; margin: 18px 0 8px; }
+    .bars i {
+      flex: 1; background: #2a221e; border-radius: 6px 6px 0 0;
+    }
+    .bars i.f { background: var(--hot); opacity: .85; }
+    .lock {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: 12px;
+    }
+    .orb {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #e8c9a4, #7a4a2c 55%, #1a120e);
+      margin-bottom: 8px;
+    }
+    .tabs {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line); padding: 10px 8px 18px;
+    }
+    .tabs button {
+      background: none; border: 0; color: var(--mute); font-size: 11px; cursor: pointer;
+    }
+    .tabs button.on { color: var(--ink); }
+    .hidden { display: none; }
+  </style>
 </head>
 <body>
- <div class="proto-top">
- <a class="logo" href="index.html">← CURRENT site</a>
- <span class="fine" style="margin:0">In-browser prototype · not the App Store</span>
- </div>
+  <div class="proto-top">
+    <a class="logo" href="index.html">← CURRENT site</a>
+    <span class="fine" style="margin:0">In-browser prototype · not the App Store</span>
+  </div>
 
- <div class="shell">
- <div class="device">
- <div class="status">9:41</div>
+  <div class="shell">
+    <div class="device">
+      <div class="status">9:41</div>
 
- <div id="today" class="screen">
- <div class="brand">CURRENT</div>
- <h1>Tonight.</h1>
- <p class="sub">Thursday 10 Sep · Sleep last night 6h 12m</p>
- <p class="label">Did it happen?</p>
- <div class="row" id="happened">
- <div class="chip on" data-v="yes">Yes</div>
- <div class="chip" data-v="solo">Solo sex</div>
- <div class="chip" data-v="no">No</div>
- </div>
- <p class="label">Drive</p>
- <div class="meter" id="drive">
- <b>1</b><b>2</b><b class="on">3</b><b>4</b><b>5</b>
- </div>
- <p class="label">What shaped the day</p>
- <div class="row" id="tags">
- <div class="chip">Hard session</div>
- <div class="chip on">Easy run</div>
- <div class="chip">Late night</div>
- <div class="chip on">Drinks</div>
- <div class="chip">Stressed</div>
- </div>
- <button class="save" id="save">Save tonight</button>
- <p class="toast" id="toast"></p>
- </div>
+      <div id="today" class="screen">
+        <div class="brand">CURRENT</div>
+        <h1>Tonight.</h1>
+        <p class="sub">Thursday 10 Sep · Sleep last night 6h 12m</p>
+        <p class="label">Did it happen?</p>
+        <div class="row" id="happened">
+          <div class="chip on" data-v="yes">Yes</div>
+          <div class="chip" data-v="solo">Solo sex</div>
+          <div class="chip" data-v="no">No</div>
+        </div>
+        <p class="label">Drive</p>
+        <div class="meter" id="drive">
+          <b>1</b><b>2</b><b class="on">3</b><b>4</b><b>5</b>
+        </div>
+        <p class="label">What shaped the day</p>
+        <div class="row" id="tags">
+          <div class="chip">Hard session</div>
+          <div class="chip on">Easy run</div>
+          <div class="chip">Late night</div>
+          <div class="chip on">Drinks</div>
+          <div class="chip">Stressed</div>
+        </div>
+        <button class="save" id="save">Save tonight</button>
+        <p class="toast" id="toast"></p>
+      </div>
 
- <div id="cal" class="screen hidden">
- <div class="brand">CURRENT</div>
- <h1>September</h1>
- <p class="sub">Marks only. Detail lives on the day.</p>
- <div class="cal" id="calgrid"></div>
- <div class="stat"><span>This month</span><b>7 nights</b></div>
- <div class="stat"><span>Longest gap</span><b>4 days</b></div>
- <div class="stat"><span>Avg drive</span><b>3.2</b></div>
- </div>
+      <div id="cal" class="screen hidden">
+        <div class="brand">CURRENT</div>
+        <h1>September</h1>
+        <p class="sub">Marks only. Detail lives on the day.</p>
+        <div class="cal" id="calgrid"></div>
+        <div class="stat"><span>This month</span><b>7 nights</b></div>
+        <div class="stat"><span>Longest gap</span><b>4 days</b></div>
+        <div class="stat"><span>Avg drive</span><b>3.2</b></div>
+      </div>
 
- <div id="pattern" class="screen hidden">
- <div class="brand">CURRENT</div>
- <h1>Pattern</h1>
- <p class="sub">Last 14 days · drive vs sleep. Fake data until you live in it.</p>
- <div class="bars">
- <i style="height:40%"></i><i class="f" style="height:70%"></i>
- <i style="height:35%"></i><i class="f" style="height:80%"></i>
- <i style="height:30%"></i><i style="height:45%"></i>
- <i class="f" style="height:90%"></i><i style="height:28%"></i>
- <i class="f" style="height:60%"></i><i style="height:38%"></i>
- <i style="height:42%"></i><i class="f" style="height:75%"></i>
- <i style="height:33%"></i><i class="f" style="height:85%"></i>
- </div>
- <div class="stat"><span>Short sleep nights</span><b>Drive −1.1</b></div>
- <div class="stat"><span>Hard session days</span><b>Drive −0.4</b></div>
- <div class="stat"><span>Drinks</span><b>Next-day drive −0.8</b></div>
- <p class="sub" style="margin-top:16px">This is the paid layer later. Free app is the calendar. Paid is “what moved.”</p>
- </div>
+      <div id="pattern" class="screen hidden">
+        <div class="brand">CURRENT</div>
+        <h1>Pattern</h1>
+        <p class="sub">Last 14 days · drive vs sleep. Fake data until you live in it.</p>
+        <div class="bars">
+          <i style="height:40%"></i><i class="f" style="height:70%"></i>
+          <i style="height:35%"></i><i class="f" style="height:80%"></i>
+          <i style="height:30%"></i><i style="height:45%"></i>
+          <i class="f" style="height:90%"></i><i style="height:28%"></i>
+          <i class="f" style="height:60%"></i><i style="height:38%"></i>
+          <i style="height:42%"></i><i class="f" style="height:75%"></i>
+          <i style="height:33%"></i><i class="f" style="height:85%"></i>
+        </div>
+        <div class="stat"><span>Short sleep nights</span><b>Drive −1.1</b></div>
+        <div class="stat"><span>Hard session days</span><b>Drive −0.4</b></div>
+        <div class="stat"><span>Drinks</span><b>Next-day drive −0.8</b></div>
+        <p class="sub" style="margin-top:16px">This is the paid layer later. Free app is the calendar. Paid is “what moved.”</p>
+      </div>
 
- <div id="lock" class="screen hidden">
- <div class="lock">
- <div class="orb"></div>
- <div class="brand">CURRENT</div>
- <h1 style="font-size:28px">Face ID</h1>
- <p class="sub">If they pick up your phone they see a tide. Not September.</p>
- </div>
- </div>
+      <div id="lock" class="screen hidden">
+        <div class="lock">
+          <div class="orb"></div>
+          <div class="brand">CURRENT</div>
+          <h1 style="font-size:28px">Face ID</h1>
+          <p class="sub">If they pick up your phone they see a tide. Not September.</p>
+        </div>
+      </div>
 
- <div class="tabs">
- <button class="on" data-tab="today">Today</button>
- <button data-tab="cal">Month</button>
- <button data-tab="pattern">Pattern</button>
- <button data-tab="lock">Lock</button>
- </div>
- </div>
- </div>
+      <div class="tabs">
+        <button class="on" data-tab="today">Today</button>
+        <button data-tab="cal">Month</button>
+        <button data-tab="pattern">Pattern</button>
+        <button data-tab="lock">Lock</button>
+      </div>
+    </div>
+  </div>
 
- <script>
- const tabs = document.querySelectorAll('.tabs button');
- const screens = ['today','cal','pattern','lock'];
- tabs.forEach(btn => {
- btn.onclick = () => {
- tabs.forEach(b => b.classList.remove('on'));
- btn.classList.add('on');
- screens.forEach(id => {
- document.getElementById(id).classList.toggle('hidden', id !== btn.dataset.tab);
- });
- };
- });
- document.querySelectorAll('#happened .chip, #tags .chip').forEach(chip => {
- chip.onclick = () => {
- if (chip.parentElement.id === 'happened') {
- chip.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
- }
- chip.classList.toggle('on');
- };
- });
- document.querySelectorAll('#drive b').forEach((b, i, all) => {
- b.onclick = () => all.forEach((x, j) => x.classList.toggle('on', j === i));
- });
- document.getElementById('save').onclick = () => {
- document.getElementById('toast').textContent = 'Logged. Stays on this phone.';
- };
- const grid = document.getElementById('calgrid');
- const marked = new Set([2,5,8,12,16,21,27]);
- for (let d = 1; d <= 30; d++) {
- const s = document.createElement('span');
- s.textContent = d;
- if (marked.has(d)) s.classList.add('mark');
- if (d === 10) s.classList.add('today');
- grid.appendChild(s);
- }
- </script>
+  <script>
+    const tabs = document.querySelectorAll('.tabs button');
+    const screens = ['today','cal','pattern','lock'];
+    tabs.forEach(btn => {
+      btn.onclick = () => {
+        tabs.forEach(b => b.classList.remove('on'));
+        btn.classList.add('on');
+        screens.forEach(id => {
+          document.getElementById(id).classList.toggle('hidden', id !== btn.dataset.tab);
+        });
+      };
+    });
+    document.querySelectorAll('#happened .chip, #tags .chip').forEach(chip => {
+      chip.onclick = () => {
+        if (chip.parentElement.id === 'happened') {
+          chip.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+        }
+        chip.classList.toggle('on');
+      };
+    });
+    document.querySelectorAll('#drive b').forEach((b, i, all) => {
+      b.onclick = () => all.forEach((x, j) => x.classList.toggle('on', j === i));
+    });
+    document.getElementById('save').onclick = () => {
+      document.getElementById('toast').textContent = 'Logged. Stays on this phone.';
+    };
+    const grid = document.getElementById('calgrid');
+    const marked = new Set([2,5,8,12,16,21,27]);
+    for (let d = 1; d <= 30; d++) {
+      const s = document.createElement('span');
+      s.textContent = d;
+      if (marked.has(d)) s.classList.add('mark');
+      if (d === 10) s.classList.add('today');
+      grid.appendChild(s);
+    }
+  </script>
 </body>
 </html>
